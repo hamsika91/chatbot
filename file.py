@@ -13,19 +13,19 @@ def translate_role_for_streamlit(user_role):
         return user_role
  
 st.set_page_config(
-    page_title="Gemini-Pro- Chatbot ",
+    page_title="Chatbot ",
     page_icon=":brain:",  # Favicon emoji
     layout="wide")
  
 if "chat_session" not in st.session_state:
     st.session_state.chat_session = model.start_chat(history=[])
  
-st.title("Gemini Pro - ChatBot")
+st.title("ChatBot")
  
 for message in st.session_state.chat_session.history:
     with st.chat_message(translate_role_for_streamlit(message.role)):
         st.markdown(message.parts[0].text)
-user_prompt = st.chat_input("Ask Gemini-Pro...")
+user_prompt = st.chat_input("Ask Anything...")
  
 if user_prompt:
     # Add user's message to chat and display it
